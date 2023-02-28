@@ -11,7 +11,10 @@ namespace Trade.AllClass
     public class Helper
     {
         public static Frame MainFrame= new Frame();
-        public static TextBlock TbHeader = new TextBlock();
+        public static TextBlock TbFIO = new TextBlock();
+        public static Button BtnBack = new Button();
+        public static Button BtnExitAccaunt = new Button();
+        public static Int32 levelPageActive = 0;
         public static String Role = "Гость";
         private static TradeEntities TradeEntities = new TradeEntities();
         public static TradeEntities GetData()

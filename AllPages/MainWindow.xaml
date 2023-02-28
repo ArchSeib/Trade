@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trade.AllPages"
         mc:Ignorable="d"
-        Title="Главеый экран" Height="500" Width="800" MinHeight="500" MinWidth="800">
+        Title="Главеый экран" Height="500" Width="850" MinHeight="500" MinWidth="850">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
@@ -15,12 +15,16 @@
         <Grid Background="#FF76E383">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition  Width="100"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="TbHeader" Grid.Column="1" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Главный экран</TextBlock>
+            <TextBlock x:Name="TbFIO" Grid.Column="3" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Гость</TextBlock>
             <Image x:Name="ImgLogotip" Margin="5"/>
-            <Button Grid.Column="2" Content="Выход" Width="90" Height="50" x:Name="BtnExit" Click="BtnExit_Click"></Button>
+            <Button Grid.Column="4" Content="Выход" Width="90" Height="50" x:Name="BtnExit" Click="BtnExit_Click"></Button>
+            <Button Grid.Column="2" Content="Назад" Width="90" Height="50" x:Name="BtnBack" Click="BtnBack_Click" Visibility="Hidden"></Button>
+            <Button Grid.Column="1" Content="Выйти из аккаунта" Width="190" Height="50" x:Name="BtnExitAccaunt" Click="BtnExitAccaunt_Click" Visibility="Hidden"></Button>
         </Grid>
         <Grid Grid.Row="2" Background="#FF76E383">
             <Grid.ColumnDefinitions>

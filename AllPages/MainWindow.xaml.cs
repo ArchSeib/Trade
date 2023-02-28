@@ -26,7 +26,9 @@ namespace Trade.AllPages
         {
             InitializeComponent();
             ImgLogotip.Source = new BitmapImage(new Uri("/Resources/logo.png", UriKind.RelativeOrAbsolute));
-            Helper.TbHeader = this.TbHeader;
+            Helper.BtnBack = this.BtnBack;
+            Helper.BtnExitAccaunt = this.BtnExitAccaunt;
+            Helper.TbFIO = this.TbFIO;
             Helper.MainFrame = this.MainFrame;
             Helper.MainFrame.Navigate(new AutрorizationPage());
         }
@@ -34,6 +36,25 @@ namespace Trade.AllPages
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void BtnExitAccaunt_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.MainFrame.Navigate(new AutрorizationPage());
+            Helper.Role = "Гость";
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (Helper.levelPageActive <= 1)
+            {
+                Helper.BtnBack.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                Helper.BtnBack.Visibility = Visibility.Visible;
+            }
+            Helper.MainFrame.GoBack();
         }
     }
 }

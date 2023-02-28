@@ -43,7 +43,29 @@ namespace Trade
         }
         public string ProductManufacturer { get; set; }
         public decimal ProductCost { get; set; }
+        public decimal CostNow {
+            get { return this.CostNow; }
+            set
+            {
+                CostNow = ProductCost - ProductCost*Convert.ToDecimal(ProductDiscountAmount);
+            }
+        }
         public Nullable<byte> ProductDiscountAmount { get; set; }
+        public Int32 ColorCodeDiscount
+        {
+            set
+            {
+                if (ProductDiscountAmount >= 15)
+                {
+                    ColorCodeDiscount = 1;
+                }
+                else
+                {
+                    ColorCodeDiscount = 0;
+                }
+            }
+            get { return this.ColorCodeDiscount; }
+        }
         public int ProductQuantityInStock { get; set; }
         public string ProductStatus { get; set; }
         public string Unit { get; set; }

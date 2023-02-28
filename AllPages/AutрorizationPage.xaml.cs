@@ -25,7 +25,6 @@ namespace Trade.AllPages
         public AutрorizationPage()
         {
             InitializeComponent();
-            Helper.TbHeader.Text = "Авторизация";
             PasswordChange = false;
             LoginChange = false;
         }
@@ -64,7 +63,7 @@ namespace Trade.AllPages
                         {
                             if (user.UserRole == 3)
                             {
-                                Helper.Role = "Мэнеджер";
+                                Helper.Role = "Менеджер";
                                 Helper.MainFrame.Navigate(new ManagerPage());
                             }
                             if (user.UserRole == 2)
@@ -77,6 +76,9 @@ namespace Trade.AllPages
                                 Helper.Role = "Клиент";
                                 Helper.MainFrame.Navigate(new ClientPage());
                             }
+                            Helper.BtnExitAccaunt.Visibility = Visibility.Visible;
+                            Helper.levelPageActive++;
+                            Helper.TbFIO.Text = user.UserSurname + " " + user.UserName + " " + user.UserPatronymic;
                         }
                     }
                 }
