@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trade.AllPages"
         mc:Ignorable="d"
-        Title="Главеый экран" Height="500" Width="850" MinHeight="500" MinWidth="850">
+        Title="Главеый экран" Height="600" Width="850" MinHeight="500" MinWidth="850">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>

@@ -69,6 +69,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AllClass\DiscontConverter.cs" />
+    <Compile Include="AllClass\ProductItem.cs" />
     <Compile Include="AllPages\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
@@ -188,6 +189,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -209,19 +211,19 @@
     <Resource Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Товары\A782R4.jpg" />
-    <EmbeddedResource Include="Resources\Товары\D374E4.jpeg" />
-    <EmbeddedResource Include="Resources\Товары\K830R4.jpg" />
-    <EmbeddedResource Include="Resources\Товары\K849L6.jpeg" />
-    <EmbeddedResource Include="Resources\Товары\O393R4.jpeg" />
-    <EmbeddedResource Include="Resources\Товары\S037R9.jpeg" />
-    <EmbeddedResource Include="Resources\Товары\S983R4.jpg" />
-    <EmbeddedResource Include="Resources\Товары\Z374R3.jpeg" />
-    <EmbeddedResource Include="Resources\Товары\Z469T7.jpg" />
-    <EmbeddedResource Include="Resources\Товары\Z472R4.jpeg" />
+    <Resource Include="Resources\Товары\A782R4.jpg" />
+    <Resource Include="Resources\Товары\D374E4.jpeg" />
+    <Resource Include="Resources\Товары\K830R4.jpg" />
+    <Resource Include="Resources\Товары\K849L6.jpeg" />
+    <Resource Include="Resources\Товары\O393R4.jpeg" />
+    <Resource Include="Resources\Товары\S037R9.jpeg" />
+    <Resource Include="Resources\Товары\S983R4.jpg" />
+    <Resource Include="Resources\Товары\Z374R3.jpeg" />
+    <Resource Include="Resources\Товары\Z469T7.jpg" />
+    <Resource Include="Resources\Товары\Z472R4.jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\picture.png" />
+    <Resource Include="Resources\picture.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\icon.ico" />

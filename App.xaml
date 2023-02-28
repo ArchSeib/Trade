@@ -38,7 +38,7 @@
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="FontSize" Value="16"/>
         </Style>
-        <Style TargetType="DataGrid" x:Key="DGProducts">
+        <Style TargetType="Grid" x:Key="DGProducts">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding ColorCodeDiscount}" Value="1">
                     <Setter Property="Grid.Background" Value="#7fff00"></Setter>
