@@ -1,0 +1,35 @@
+﻿<Window x:Class="Trade.AllPages.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Trade.AllPages"
+        mc:Ignorable="d"
+        Title="Главеый экран" Height="500" Width="800" MinHeight="500" MinWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid Background="#FF76E383">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition  Width="100"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="TbHeader" Grid.Column="1" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Главный экран</TextBlock>
+            <Image x:Name="ImgLogotip" Margin="5"/>
+            <Button Grid.Column="2" Content="Выход" Width="90" Height="50" x:Name="BtnExit" Click="BtnExit_Click"></Button>
+        </Grid>
+        <Grid Grid.Row="2" Background="#FF76E383">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition  Width="100"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Text="ООО «Руль»" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+        <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"></Frame>
+    </Grid>
+</Window>

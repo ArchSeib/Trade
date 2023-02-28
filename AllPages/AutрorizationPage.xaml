@@ -1,0 +1,25 @@
+﻿<Page x:Class="Trade.AllPages.AutрorizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Trade.AllPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AutрorizationPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox Grid.Row="1" TextChanged="TbxLogin_TextChanged" GotFocus="TbxLogin_GotFocus" LostFocus="TbxLogin_LostFocus" x:Name="TbxLogin" Width="400" Height="50" TextAlignment="Left" Padding="14"  Text="Логин"></TextBox>
+        <TextBox Grid.Row="2" TextChanged="TbxPassword_TextChanged" GotFocus="TbxPassword_GotFocus" LostFocus="TbxPassword_LostFocus" x:Name="TbxPassword" Width="400" Height="50" TextAlignment="Left" Padding="14" Text="Пароль"></TextBox>
+        <Button Grid.Row="3" x:Name="BtnAutho" Width="200" Height="50" Click="BtnAutho_Click">Авторизация</Button>
+        <Button Grid.Row="4" x:Name="BtnProducts" Width="200" Height="50" Click="BtnProducts_Click">Продукты</Button>
+    </Grid>
+</Page>
