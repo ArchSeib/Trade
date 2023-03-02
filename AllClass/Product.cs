@@ -13,5 +13,6 @@ namespace Trade.AllClass
         public string ColorCodeDiscount { get; set; }
         public Decimal ProductRealCost { get; set; }
         public BitmapImage PathPhoto { get; set; }
+        public Int32 CountInOrder { get; set; }
     }
 }

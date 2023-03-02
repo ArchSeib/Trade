@@ -5,8 +5,88 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trade.AllPages"
         mc:Ignorable="d"
-        Title="NewOrderWindow" Height="450" Width="800">
+        Title="Новый заказ" Height="500" Width="850" MinWidth="850" MinHeight="500">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid Background="#FF76E383">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="TbFIO" Grid.Column="3" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="Wrap">Гость</TextBlock>
+            <Image x:Name="ImgLogotip" Margin="5"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Дата заказа" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="TblDate"></TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="Номер заказа" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="TblNumber"></TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="Сумма заказа" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="TblCos"></TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="3" Text="Сумма скидки" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="TblCostDicount" Foreground="Red" ></TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="4" Text="Код получения" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" x:Name="TblCode"></TextBlock>
+            <ComboBox Margin="30 0 0 0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Height="30" x:Name="CBAddres" DisplayMemberPath="Addres"></ComboBox>
+            <Button Grid.Row="1" Grid.Column="3" Margin="50 0 0 0" Grid.ColumnSpan="2" Width="200" HorizontalAlignment="Left" x:Name="BtnNewOrder" Click="BtnNewOrder_Click">Сформировать заказ</Button>
+            <ScrollViewer Grid.Row="2" Grid.ColumnSpan="5" Margin="0 10">
+                <ListView HorizontalAlignment="Center" x:Name="LVProducts" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="LVProducts_SelectionChanged">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="auto" x:Name="DGLV" Margin="0 10" Background="{Binding ColorCodeDiscount}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition MinWidth="500" MaxWidth="800"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding PathPhoto}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                                <Grid Grid.Column="1" Margin="15 0 15 0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Text="{Binding ProductName}"></TextBlock>
+                                    <TextBlock Grid.Row="1" Text="{Binding ProductDescription}" TextWrapping="Wrap"></TextBlock>
+                                    <TextBlock Grid.Row="2" Text="{Binding ProductManufacturer}"></TextBlock>
+                                    <StackPanel Orientation="Horizontal" Grid.Row="3">
+                                        <TextBlock Grid.Row="3" Text="{Binding ProductRealCost,StringFormat={}{0}Р}"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="2" Margin="0 10 10 0" Text="{Binding ProductDiscountAmount, StringFormat={}{0}%}" FontSize="20"></TextBlock>
+                                    <TextBox TextChanged="TBCountProduct_TextChanged" Grid.Row="1" Height="30" x:Name="TBCountProduct" TextAlignment="Center" Text="0"></TextBox>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Row="2" Background="#FF76E383">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition  Width="100"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Text="ООО «Руль»" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
     </Grid>
 </Window>

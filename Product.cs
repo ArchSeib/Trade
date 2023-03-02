@@ -39,6 +39,7 @@ namespace Trade
         public string ColorCodeDiscount { get; set; }
         public Decimal ProductRealCost { get; set; }
         public BitmapImage PathPhoto { get; set; }
+        public Int32 CountInOrder { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }

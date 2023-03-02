@@ -25,7 +25,8 @@ namespace Trade
         public string City { get; set; }
         public string Street { get; set; }
         public Nullable<int> NumberHouse { get; set; }
-    
+        public string Addres => City + ", " + Street + ", д." + NumberHouse;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
     }
