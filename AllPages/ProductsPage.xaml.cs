@@ -21,28 +21,27 @@ namespace Trade.AllPages
     /// </summary>
     public partial class ProductsPage : Page
     {
-        private static List<Product> productItems = new List<Product>();
+        private static List<Product> productItems;
         private static bool SearchChange;
         private static Int32 TagFilter;
         private static Int32 TagSort;
+        private List<Product> selectProducts = new List<Product>();
+        private List<Product> NewOrder = new List<Product>();
         public ProductsPage()
         {
             InitializeComponent();
-            if (Helper.Role == "Клиент")
-            {
-                BtnNewOrder.Visibility = Visibility.Visible;
-            }
+            BtnNewOrder.Visibility = Visibility.Visible;
             if (Helper.Role == "Админ")
             {
-                BtnDeleteProduct.Visibility = Visibility.Visible;
-                BtnEditProduct.Visibility = Visibility.Visible;
-                BtnNewOrder.Visibility = Visibility.Visible;
                 BtnNewProduct.Visibility = Visibility.Visible;
+                CMAdminMenu.Visibility = Visibility.Visible;
             }
+            BtnNewOrder.IsEnabled = false;
             Load();
         }
         private static void CreateProductList()
         {
+            productItems = new List<Product>();
             foreach(Product item in Helper.GetData().Product.ToList())
             {
                 if (item.ProductDiscountAmount >= 15)
@@ -68,6 +67,7 @@ namespace Trade.AllPages
         private void Load()
         {
             CreateProductList();
+            TbAllRecor.Text = productItems.Count.ToString();
             if (LVProducts != null)
             {
                 if(TagSort!=0)
@@ -77,6 +77,7 @@ namespace Trade.AllPages
                 Search();
                 LVProducts.ItemsSource = productItems;
             }
+            TbVisibleRecor.Text = productItems.Count.ToString();
         }
         private void Sort()
         {
@@ -135,30 +136,79 @@ namespace Trade.AllPages
 
         private void BtnNewOrder_Click(object sender, RoutedEventArgs e)
         {
-            NewProductWindow newProductWindow = new NewProductWindow(null);
-            newProductWindow.Show();
+            if (NewOrder.Count != 0)
+            {
+                NewOrderWindow newOrderWindow = new NewOrderWindow(NewOrder);
+                newOrderWindow.Show();
+            }
         }
 
         private void EditProduct_Click(object sender, RoutedEventArgs e)
         {
-            NewProductWindow newProductWindow = new NewProductWindow(null);
-            newProductWindow.Show();
+            if (selectProducts.Count > 1)
+            {
+                MessageBox.Show("Вы должны выбрать только один элемент для редактирования");
+            }
+            else
+            {
+                NewProductWindow newProduct = new NewProductWindow(selectProducts[0]);
+                newProduct.Show();
+            }
         }
 
         private void BtnDeleteProduct_Click(object sender, RoutedEventArgs e)
         {
-            Product deleteProduct = new Product();
-            var message = MessageBox.Show("Вы уверены что хотите удалить данныё товар?","Удаление товара!",MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (message == MessageBoxResult.Yes)
+            if (selectProducts.Count == 0)
             {
-                try
+                MessageBox.Show("Выбирите элементы для удаления");
+            }
+            else
+            {
+                var message = MessageBox.Show("Вы уверены что хотите удалить данный(ые) товар(ы)?", "Удаление товара!", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (message == MessageBoxResult.Yes)
                 {
-                    Helper.GetData().Product.Remove(deleteProduct);
-                }catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                    try
+                    {
+                        foreach(Product productDelete in selectProducts)
+                        {
+                            Helper.GetData().Product.Remove(productDelete);
+                        }
+                        Helper.GetData().SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
+        }
+        private void LVProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            /*            MessageBox.Show((LVProducts.SelectedItem as Product).ProductName);*/
+            selectProducts = LVProducts.SelectedItems.Cast<Product>().ToList();
+        }
+
+        private void CMAddinOrder_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectProducts.Count >= 1)
+            {
+                foreach (Product product in selectProducts)
+                {
+                    NewOrder.Add(product);
+                }
+                BtnNewOrder.Visibility = Visibility.Visible;
+            }
+            if (selectProducts.Count == 0)
+            {
+                MessageBox.Show("Выбирите хотябы один товр для добавления к заказу");
+                BtnNewOrder.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void BtnNewProduct_Click(object sender, RoutedEventArgs e)
+        {
+            NewProductWindow newProductWindow = new NewProductWindow(null);
+            newProductWindow.Show();
         }
     }
 }

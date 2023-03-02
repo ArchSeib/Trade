@@ -11,6 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
+            <RowDefinition Height="30"/>
             <RowDefinition/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
@@ -47,11 +48,24 @@
                 </ComboBoxItem>
             </ComboBox>
         </Grid>
-        <ScrollViewer Padding="0 20" Grid.Row="1">
-            <ListView HorizontalAlignment="Center" x:Name="LVProducts" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock x:Name="TbVisibleRecor">0</TextBlock>
+            <TextBlock> / </TextBlock>
+            <TextBlock x:Name="TbAllRecor">0</TextBlock>
+        </StackPanel>
+        <ScrollViewer Grid.Row="2">
+            <ListView HorizontalAlignment="Center" x:Name="LVProducts" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="LVProducts_SelectionChanged">
+                <ListView.ContextMenu>
+                    <ContextMenu x:Name="CMAdminMenu" Visibility="Hidden">
+                        <MenuItem Header="Добавить в зааказ" Click="CMAddinOrder_Click"/>
+                        <MenuItem Header="Редактировать" Click="EditProduct_Click"/>
+                        <MenuItem Header="Удалить" Click="BtnDeleteProduct_Click"/>
+                    </ContextMenu>
+                </ListView.ContextMenu>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid Height="auto" x:Name="DGLV" Margin="0 10" Background="{Binding ColorCodeDiscount}">
+                        
                             <Grid.Triggers>
 
                             </Grid.Triggers>
@@ -81,17 +95,13 @@
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollViewer>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Width="180" Height="40" x:Name="BtnNewOrder" Click="BtnNewOrder_Click" HorizontalAlignment="Right" Visibility="Hidden">Сформировать заказ</Button>
-            <Button Grid.Column="1" Width="180" Height="40" x:Name="BtnEditProduct" Click="EditProduct_Click" Visibility="Hidden">Редактировать товар</Button>
-            <Button Grid.Column="2" Width="180" Height="40" x:Name="BtnDeleteProduct" Click="BtnDeleteProduct_Click" Visibility="Hidden">Удалить товар</Button>
-            <Button Grid.Column="3" Width="180" Height="40" x:Name="BtnNewProduct"  HorizontalAlignment="Left" Visibility="Hidden">Добавить товар</Button>
+            <Button Width="200" Height="40" x:Name="BtnNewOrder" Click="BtnNewOrder_Click" HorizontalAlignment="Right" Visibility="Hidden" Margin="0 0 50 0">Сформировать заказ</Button>
+            <Button Grid.Column="1" Width="200" Height="40" x:Name="BtnNewProduct" Click="BtnNewProduct_Click" HorizontalAlignment="Left" Visibility="Hidden" Margin="50 0 0 0 ">Добавить товар</Button>
         </Grid>
     </Grid>
 </Page>

@@ -20,7 +20,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition  Width="100"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="TbFIO" Grid.Column="3" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Гость</TextBlock>
+            <TextBlock x:Name="TbFIO" Grid.Column="3" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="Wrap">Гость</TextBlock>
             <Image x:Name="ImgLogotip" Margin="5"/>
             <Button Grid.Column="4" Content="Выход" Width="90" Height="50" x:Name="BtnExit" Click="BtnExit_Click"></Button>
             <Button Grid.Column="2" Content="Назад" Width="90" Height="50" x:Name="BtnBack" Click="BtnBack_Click" Visibility="Hidden"></Button>

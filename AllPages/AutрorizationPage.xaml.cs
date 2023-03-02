@@ -64,17 +64,17 @@ namespace Trade.AllPages
                             if (user.UserRole == 3)
                             {
                                 Helper.Role = "Менеджер";
-                                Helper.MainFrame.Navigate(new ManagerPage());
+                                Helper.MainFrame.Navigate(new SecondMenuPage());
                             }
                             if (user.UserRole == 2)
                             {
                                 Helper.Role = "Админ";
-                                Helper.MainFrame.Navigate(new AdminPage());
+                                Helper.MainFrame.Navigate(new SecondMenuPage());
                             }
                             if (user.UserRole == 1)
                             {
                                 Helper.Role = "Клиент";
-                                Helper.MainFrame.Navigate(new ClientPage());
+                                Helper.MainFrame.Navigate(new SecondMenuPage());
                             }
                             Helper.BtnExitAccaunt.Visibility = Visibility.Visible;
                             Helper.levelPageActive++;

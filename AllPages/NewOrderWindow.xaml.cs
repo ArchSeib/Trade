@@ -19,7 +19,7 @@ namespace Trade.AllPages
     /// </summary>
     public partial class NewOrderWindow : Window
     {
-        public NewOrderWindow(Order order)
+        public NewOrderWindow(List<Product> orders)
         {
             InitializeComponent();
         }

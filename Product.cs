@@ -26,12 +26,9 @@ namespace Trade
         public string ProductDescription { get; set; }
         public string ProductCategory { get; set; }
         public string ProductPhoto { get; set; }
-        public BitmapImage PathPhoto { get; set; }
         public string ProductManufacturer { get; set; }
         public decimal ProductCost { get; set; }
-        public decimal ProductRealCost { get; set; }
         public Nullable<byte> ProductDiscountAmount { get; set; }
-        public String ColorCodeDiscount { get; set; }
         public int ProductQuantityInStock { get; set; }
         public string ProductStatus { get; set; }
         public string Unit { get; set; }
@@ -39,7 +36,10 @@ namespace Trade
         public string Supplier { get; set; }
         public Nullable<int> MinCount { get; set; }
         public Nullable<int> CountPack { get; set; }
-    
+        public string ColorCodeDiscount { get; set; }
+        public Decimal ProductRealCost { get; set; }
+        public BitmapImage PathPhoto { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
     }

@@ -69,20 +69,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AllClass\DiscontConverter.cs" />
-    <Compile Include="AllPages\AdminPage.xaml.cs">
-      <DependentUpon>AdminPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AllPages\ClientPage.xaml.cs">
-      <DependentUpon>ClientPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AllPages\ManagerPage.xaml.cs">
-      <DependentUpon>ManagerPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="AllClass\Product.cs" />
     <Compile Include="AllPages\NewOrderWindow.xaml.cs">
       <DependentUpon>NewOrderWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="AllPages\NewProductWindow.xaml.cs">
       <DependentUpon>NewProductWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AllPages\SecondMenuPage.xaml.cs">
+      <DependentUpon>SecondMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model1.cs">
       <AutoGen>True</AutoGen>
@@ -107,15 +102,7 @@
     <Compile Include="User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Page Include="AllPages\AdminPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="AllPages\AutрorizationPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AllPages\ClientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,10 +127,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="AllPages\ManagerPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="AllPages\NewOrderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AllPages\ProductsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllPages\SecondMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
