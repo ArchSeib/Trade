@@ -69,7 +69,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AllClass\DiscontConverter.cs" />
-    <Compile Include="AllClass\ProductItem.cs" />
     <Compile Include="AllPages\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
@@ -78,6 +77,12 @@
     </Compile>
     <Compile Include="AllPages\ManagerPage.xaml.cs">
       <DependentUpon>ManagerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AllPages\NewOrderWindow.xaml.cs">
+      <DependentUpon>NewOrderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AllPages\NewProductWindow.xaml.cs">
+      <DependentUpon>NewProductWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model1.cs">
       <AutoGen>True</AutoGen>
@@ -125,12 +130,6 @@
     <Compile Include="AllPages\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AllPages\NewEditOrderPage.xaml.cs">
-      <DependentUpon>NewEditOrderPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AllPages\NewEditProductPage.xaml.cs">
-      <DependentUpon>NewEditProductPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="AllPages\OrdersPage.xaml.cs">
       <DependentUpon>OrdersPage.xaml</DependentUpon>
     </Compile>
@@ -145,11 +144,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AllPages\NewEditOrderPage.xaml">
+    <Page Include="AllPages\NewOrderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AllPages\NewEditProductPage.xaml">
+    <Page Include="AllPages\NewProductWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

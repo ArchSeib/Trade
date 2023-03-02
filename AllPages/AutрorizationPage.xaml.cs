@@ -91,6 +91,8 @@ namespace Trade.AllPages
         private void BtnProducts_Click(object sender, RoutedEventArgs e)
         {
             Helper.MainFrame.Navigate(new ProductsPage());
+            Helper.BtnBack.Visibility = Visibility.Visible;
+            Helper.levelPageActive++;
         }
         private static bool LoginChange;
         private void TbxLogin_GotFocus(object sender, RoutedEventArgs e)

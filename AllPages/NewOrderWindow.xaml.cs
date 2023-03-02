@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Trade.AllPages
 {
     /// <summary>
-    /// Логика взаимодействия для NewEditOrderPage.xaml
+    /// Логика взаимодействия для NewOrderWindow.xaml
     /// </summary>
-    public partial class NewEditOrderPage : Page
+    public partial class NewOrderWindow : Window
     {
-        public NewEditOrderPage()
+        public NewOrderWindow(Order order)
         {
             InitializeComponent();
         }

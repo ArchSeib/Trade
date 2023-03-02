@@ -20,15 +20,41 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBox TextChanged="TbSeacrh_TextChanged" x:Name="TbSeacrh" Height="30" Width="250" HorizontalAlignment="Right">Поиск</TextBox>
-            <ComboBox SelectionChanged="CbSort_SelectionChanged"  x:Name="CbSort" Grid.Column="1" Height="35" Width="250"></ComboBox>
-            <ComboBox SelectionChanged="CbFilter_SelectionChanged"  x:Name="CbFilter" Grid.Column="2" Height="35" Width="250" HorizontalAlignment="Left"></ComboBox>
+            <TextBox TextChanged="TbSeacrh_TextChanged" x:Name="TbSeacrh" Height="30" Width="250" HorizontalAlignment="Right"></TextBox>
+            <ComboBox SelectionChanged="CbSort_SelectionChanged"  x:Name="CbSort" Grid.Column="1" Height="35" Width="250">
+                <ComboBoxItem Tag="0">
+                    <TextBlock Text="Без сортировки"></TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem Tag="1">
+                    <TextBlock Text="По возрастанию"></TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem Tag="2">
+                    <TextBlock Text="По убыванию"></TextBlock>
+                </ComboBoxItem>
+            </ComboBox>
+            <ComboBox SelectionChanged="CbFilter_SelectionChanged"  x:Name="CbFilter" Grid.Column="2" Height="35" Width="250" HorizontalAlignment="Left">
+                <ComboBoxItem Tag="0">
+                    <TextBlock Text="Все"></TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem Tag="1">
+                    <TextBlock Text="0-9.99%"></TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem Tag="2">
+                    <TextBlock Text="10-14.99%"></TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem Tag="3">
+                    <TextBlock Text="Больше 15"></TextBlock>
+                </ComboBoxItem>
+            </ComboBox>
         </Grid>
-        <ScrollViewer Padding="20" Grid.Row="1">
+        <ScrollViewer Padding="0 20" Grid.Row="1">
             <ListView HorizontalAlignment="Center" x:Name="LVProducts" d:ItemsSource="{d:SampleData ItemCount=5}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Height="auto" x:Name="DGLV" Margin="0 10" Background="#FF76E383" Style="{StaticResource ResourceKey=DGProducts}">
+                        <Grid Height="auto" x:Name="DGLV" Margin="0 10" Background="{Binding ColorCodeDiscount}">
+                            <Grid.Triggers>
+
+                            </Grid.Triggers>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100"/>
                                 <ColumnDefinition MinWidth="500" MaxWidth="800"/>

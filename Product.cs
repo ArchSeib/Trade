@@ -31,7 +31,7 @@ namespace Trade
         public decimal ProductCost { get; set; }
         public decimal ProductRealCost { get; set; }
         public Nullable<byte> ProductDiscountAmount { get; set; }
-        public Int32 ColorCodeDiscount { get; set; }
+        public String ColorCodeDiscount { get; set; }
         public int ProductQuantityInStock { get; set; }
         public string ProductStatus { get; set; }
         public string Unit { get; set; }

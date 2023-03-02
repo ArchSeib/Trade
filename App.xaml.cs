@@ -8,6 +8,7 @@ using System.Windows;
 
 namespace Trade
 {
+    //Разрвботал бакыбаев
     /// <summary>
     /// Логика взаимодействия для App.xaml
     /// </summary>
